@@ -9,7 +9,7 @@ on:
       
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-ubuntu-20.04
     steps:
         - uses: actions/checkout@v2
 
@@ -26,7 +26,6 @@ jobs:
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
-          if: ${{ github.ref == 'refs/heads/main' }}
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./public
+            publish_dir: ./publ
