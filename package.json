@@ -4,8 +4,8 @@
   "description": "A static webpage created using eleventy",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "env NODE_ENV=production npx eleventy --pathprefix 'devops_workflow'"
+    "build": "env NODE_ENV=production npx eleventy --pathprefix 'devops_workflow'",
+    "serve": "npx eleventy --serve"
    
   },
   "keywords": [],
