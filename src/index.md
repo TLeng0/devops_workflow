@@ -7,4 +7,4 @@ This is a demonstration website using the [11ty static site generator](https://w
 
 The whole build process is managed through 11ty.
 
-I can't deploy to github :(
+I CAN deploy to github!!
