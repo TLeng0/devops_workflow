@@ -1,5 +1,5 @@
 ---
-title: GIthub Pages 
+title: Github Page
 layout: "page.njk"
 ---
 
