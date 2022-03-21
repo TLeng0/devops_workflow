@@ -35,7 +35,7 @@ There are a variety of template languages that can be used such as `html`, `nunj
 3. `.eleventy.js`
 
 `.eleventy.js` is a configuration file. In this repo it is used to indicate the `input` and `output` directory. 
-As a `CSS` file is also included, we have to tell eleventy to copy it to the output folder usign `Passthrough File Copy`. 
+As a `CSS` file is also included, we have to tell eleventy to copy it to the output folder using `Passthrough File Copy`. 
 This feature can also be used to pass images to the output folder.
 
 ```
@@ -66,8 +66,8 @@ The ```node.js``` version to be used is then set up with ```actions/setup-node@v
 
 ```npm run build``` runs the ```build``` script indicated in ```package.json```.
 In this case, it asks eleventy to generate the build using ```npx eleventy```. 
-We need to add a path prefix to deploy the output files to the specific subdirectory ```/devops_workflow``` for Github pages to use the files. 
-This is inserted at the beginning of all absolute url href links.
+We add a path prefix to deploy to the specific subdirectory ```/devops_workflow```.
+This path prefix is inserted at the beginning of all absolute url href links so that links don't break when deployed to Github pages.
 ```
 npx eleventy --pathprefix 'devops_workflow'
 ```
