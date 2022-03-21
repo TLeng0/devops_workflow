@@ -76,6 +76,6 @@ Next, ```peaceiris/actions-gh-pages@v3``` is used to deploy the static files to 
 In this worflow, ```GITHUB_TOKEN``` is used to authenticate.
 As the ```output``` folder is specified as ```build``` in the ```.eleventy.js``` config file, it also has to be specified in this workflow to publish to ```build``` using ```publish_dir: build```.
 
-By default, this action will deploy to the ```gh-pages``` branch and Github will automatically deploy it to Pages from there.
+By default, this action will commit the static files to the ```gh-pages``` branch and deploy it from there.
 
 
