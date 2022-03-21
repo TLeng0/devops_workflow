@@ -45,7 +45,7 @@ module.exports = function(eleventyConfig)
 
 4. `.nojekyll`
 
-An empty file that tell Github not to use Jekyll.
+An empty file that tells Github not to use Jekyll.
 
 
 ### Github Action to deploy to Github Pages
