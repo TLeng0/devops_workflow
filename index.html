@@ -13,6 +13,56 @@
 <main>
     <p>Hello!</p>
 <p>This is a github page generated using eleventy and deployed using github actions!</p>
+<p>#How it works</p>
+<ol>
+<li>Markdown files</li>
+</ol>
+<p>Eleventy takes markdown files located in the <code>src</code> folder and build html files from them.
+Content between <code>---</code> are metadata about the page. In here you will include a reference to the template file if needed.</p>
+<pre><code>---
+title: Github Page
+layout: &quot;page.njk&quot;
+---
+</code></pre>
+<ol start="2">
+<li>Templates</li>
+</ol>
+<p>If templates are used, they are to be included under <code>src\_includes</code> which will tell eleventy to use them when refereced.
+There are a variety of template languages that can be used such as <code>html</code>, <code>nunjucks</code>, <code>liquid</code>. In this repo, <code>nunjucks</code> is used.</p>
+<ol start="3">
+<li><code>.eleventy.js</code></li>
+</ol>
+<p><code>.eleventy.js</code> is a configuration file. In this repo it is used to indicate the <code>input</code> and <code>output</code> directory.
+As a <code>CSS</code> file is also included, we have to tell eleventy to copy it to the output folder using <code>Passthrough File Copy</code>.
+This feature can also be used to pass images to the output folder.</p>
+<pre><code>module.exports = function(eleventyConfig) 
+  eleventyConfig.addPassthroughCopy(&quot;./src/style.css&quot;);
+</code></pre>
+<ol start="4">
+<li><code>.nojekyll</code></li>
+</ol>
+<p>An empty file that tells Github not to use Jekyll.</p>
+<h3>Github Action to deploy to Github Pages</h3>
+<p>The workflow file to build and deploy the website is found at <code>.github/workflow/build.yml</code>.</p>
+<p>It is automatically triggered once a push is made to the repo under the <code>main</code> branch.</p>
+<pre><code>on:
+  push:
+    branches:
+      - main
+</code></pre>
+<p>Thereafter, it checks out the repo to allow the workflow to access it using <code>actions/checkout@v3</code>
+The <code>node.js</code> version to be used is then set up with <code>actions/setup-node@v1</code>.</p>
+<p><code>npm ci</code> is then run, which is similar to <code>npm install</code> but used for automated environments such as a workflow.</p>
+<p><code>npm run build</code> runs the <code>build</code> script indicated in <code>package.json</code>.
+In this case, it asks eleventy to generate the build using <code>npx eleventy</code>.
+We add a path prefix to deploy to the specific subdirectory <code>/devops_workflow</code>.
+This path prefix is inserted at the beginning of all absolute url href links so that links don't break when deployed to Github pages.</p>
+<pre><code>npx eleventy --pathprefix 'devops_workflow'
+</code></pre>
+<p>Next, <code>peaceiris/actions-gh-pages@v3</code> is used to deploy the static files to Github pages.
+In this worflow, <code>GITHUB_TOKEN</code> is used to authenticate.
+As the <code>output</code> folder is specified as <code>build</code> in the <code>.eleventy.js</code> config file, it also has to be specified in this workflow to publish to <code>build</code> using <code>publish_dir: build</code>.</p>
+<p>By default, this action will commit the static files to the <code>gh-pages</code> branch and deploy it from there.</p>
 
 </main>
 
