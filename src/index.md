@@ -7,8 +7,6 @@ Hello!
 
 This is a github page generated using eleventy and deployed using github actions!
 
-#How it works
-
 1. Markdown files
 
 Eleventy takes markdown files located in the `src` folder and build html files from them. 
