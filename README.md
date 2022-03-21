@@ -1,6 +1,6 @@
 # Devops Project 2: CI/CD
 
-## Deploying a static website: Creating a static website using eleventy and deploying to GitHub Pages.
+## Deploying a static website: Creating a static website using eleventy and deploying to the [Github Page of this repo](https://tleng0.github.io/devops_workflow/).
 
 This repo contains code to generate a static website using [eleventy](https://www.11ty.dev/) and an action to deploy it to Github Pages whenever a push is made to the repo. 
 
